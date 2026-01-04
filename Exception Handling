@@ -1,0 +1,5 @@
+-The throws keyword is recommended for checked exceptions because the compiler enforces handling or declaration of checked exceptions.
+-If we use throws for an unchecked exception, the compiler will not force us to handle it, since unchecked exceptions are not checked at compile time.
+-The throw keyword can be used for both checked and unchecked exceptions.
+	When throw is used for an unchecked exception, the compiler does not force handling.
+	When throw is used for a checked exception, the compiler forces us to either handle it using try–catch or declare it using the throws keyword.
