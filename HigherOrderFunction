@@ -1,0 +1,49 @@
+package Java8Features;
+
+@FunctionalInterface
+interface Hello{
+	void msg();
+}
+
+public class HigerOrderFunction {
+	
+	HigerOrderFunction(){
+		System.out.println("Constructor");
+		
+	}
+	public static void m1() {
+		System.out.println("THis m1 static  method");
+		
+	}
+
+	public  void m2() {
+		System.out.println("THis is non-static  m2 method");
+	}
+	
+	public void m3(Hello object) {
+		object.msg();
+	}
+
+	public static void main(String[] args) {
+		
+		//Higher order function
+		HigerOrderFunction hof = new HigerOrderFunction();
+		hof.m3(()->System.out.println("Hey"));
+		
+		//Non static method refrence
+		Hello h = hof::m2;
+		h.msg();
+		
+		//static method refrence
+		Hello he = HigerOrderFunction::m1;
+		he.msg();
+		
+		
+		//constructor refrence
+		Hello hel = HigerOrderFunction::new ;
+		hel.msg();
+		
+	}
+
+	
+}
