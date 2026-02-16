@@ -1,0 +1,35 @@
+package Java8Features;
+
+import java.util.function.BiConsumer;
+import java.util.function.BiPredicate;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+public class FunctionalnterfaceExamples {
+
+	public static void main(String[] args) {
+
+		//1. predicate
+		Predicate<Integer> p = (num)->num%2==0;
+		System.out.println(p.test(12)); //output true
+
+		//2.Bipredicate
+		BiPredicate<Integer , Integer>  bp = (n1 , n2 )->(n1+n2)%2==0 ;
+		System.out.println(bp.test(10, 3)); //output false
+		
+		//3.Consumer
+		Consumer<Integer>  c = (n)-> System.out.println(n*n);
+		c.accept(2); //output 4
+		
+		//4.Biconsumer
+		BiConsumer<Integer ,Integer> bc = (n1,n2)->System.out.println(" Biconsumer= "+ (n1+n2) );
+		bc.accept(12, 3); //output -15
+		
+		
+		//5.Supplier
+		Supplier<Double> s = ()->Math.random();
+		System.out.println(s.get());
+	}
+
+}
